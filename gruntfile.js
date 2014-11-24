@@ -41,6 +41,13 @@
       qunit: {
         files: [ "tests/**/*.html" ]
       },
+      bytesize: {
+        all: {
+          src: [
+            "dist/*.js"
+          ]
+        }
+      },
       jshint: {
         all: {
           options: {
@@ -80,9 +87,10 @@
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-jscs-checker");
+    grunt.loadNpmTasks("grunt-bytesize");
 
     // Default task.
-    grunt.registerTask("default", [ "test", "clean", "concat", "uglify" ]);
+    grunt.registerTask("default", [ "test", "clean", "concat", "uglify", "bytesize" ]);
     grunt.registerTask("test", [ "jscs", "jshint", "qunit" ]);
   };
 })();
